@@ -212,7 +212,7 @@ export async function getServerSideProps(context) {
   const result4 = await fetcher(
     '/api/list/getPunchCardScore'
   )
-
+    console.log(result1,111)
   let total = result4.data.length ? result4.data[0].total : 0
 
   let result = {
