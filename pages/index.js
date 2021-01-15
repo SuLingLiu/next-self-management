@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <MainLayout>
-        首页{process.env.domainUrl}
+        首页
       </MainLayout>
     )
   }
