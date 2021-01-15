@@ -24,10 +24,6 @@ const ROUTES = {
           redirect: '/list/punchcard'
         },
         {
-          name: '/ssg',
-          path: '/ssg'
-        },
-        {
           name: '打卡',
           path: '/list/punchcard'
         },
