@@ -1,5 +1,7 @@
 
-# nextjs + moogodb + antd + less
+# nextjs + moogodb + antd + less 实现的自我管理系统
+clone 下来 npm install 还需`npx create-next-app`
+
 ## 配置环境变量
 ``` js
 "scripts": {
