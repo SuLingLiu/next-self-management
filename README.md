@@ -1,5 +1,5 @@
 
-
+# nextjs + moogodb + antd + less
 ## 配置环境变量
 ``` js
 "scripts": {
@@ -12,7 +12,7 @@
 
 再参考next.config.js 里env变量
 
-## 修改moongoodb的文件是config.js里的MONGODB_URI变量
+## 修改mongodb的文件是config.js里的MONGODB_URI变量
 
 ## 添加接口请求的路径可以在config.js
 
@@ -89,3 +89,4 @@ less 引用参考 next.config.js，引用了antd+less以后就不能再使用css
 
 ```
 除了以上还提示装 npm i @babel/core --save-dev
+
