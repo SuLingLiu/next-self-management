@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[antd key报错 Each child in a list should have a unique “key“ prop.](https://www.cnblogs.com/scott-j/p/13840992.html)
 
-## Getting Started
+//写成这样的方式会报错，OverwriteModelError: Cannot overwrite `listProject` model once compiled.
+export default mongoose.models.ListProject || mongoose.model('ListProject', projectSchema);
 
-First, run the development server:
+配置环境变量
 
-```bash
-npm run dev
-# or
-yarn dev
+引用公共的全局样式 _app.js
+
+配置端口号
+
+fetch post请求的参数要放到body里，且数据要字符串化
+fetch 的地址要带协议，官方demo里不带协议会报错
+``` js
+  fetch('/api/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  })
+.then((res) => res.json())
+.then((json) => json.data)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+less引用的问题
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+react-dom.development.js?61bb:67 Warning: React does not recognize the `scrollLocker` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `scrolllocker` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+react-dom.development.js?61bb:13231 Uncaught Error: Objects are not valid as a React child (found: object with keys {_isAMomentObject, _isUTC, _pf, _locale, _d, _isValid}). If you meant to render a collection of children, use an array instead.
 
-To learn more about Next.js, take a look at the following resources:
+是因为用了map循环，数据里有对象，且又setData了
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+const newData = data?.map((item) => ({ ...item })) || [];
+setData(newData);
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+用const newData = JSON.parse(JSON.stringify(data));代替map
