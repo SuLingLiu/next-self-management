@@ -1,9 +1,8 @@
 import '../styles/globals.less'
-import { Provider } from 'react-redux'
-import store from "../store/index";
+import { attachTypeApi } from 'antd/lib/message';
 
 function MyApp({ Component, pageProps }) {
-  return <Provider store={store}><Component {...pageProps} /></Provider>
+  return <Component {...pageProps} />
 }
 
 

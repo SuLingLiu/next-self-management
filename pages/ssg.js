@@ -2,8 +2,8 @@
   
     //   import cookie from 'react-cookies'
     //   let _erm_sso = cookie.load('_erm_sso') || 'a214e64d-51dc-456d-b28f-e93ede7837cc'
-  
-      let _erm_sso = '7d259a68-0acb-4700-951e-2a443d1509f3'
+    import MainLayout from '../layouts/main'
+      let _erm_sso = '2ed83966-2bbf-4e09-920f-8d2a15a56000'
       let DEFAULT_OPTIONS = {
         credentials: 'same-origin',
         headers: {
@@ -16,13 +16,14 @@
     let aa = JSON.stringify(stars);
     console.log('ssg2---',process.env.domainUrl)
     return (
+      <MainLayout>
       <div>
           <p>{process.env.domainUrl}</p>
       
           <div>{aa}</div>
       
       </div>
-
+      </MainLayout>
     )
   }
   
